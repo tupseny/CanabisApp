@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 import {withNamespaces} from "react-i18next";
 import i18n from "../utils/i18n";
-import {connect} from "react-redux";
-import {useTranslation} from "react-i18next/hooks";
 import {compose} from "redux";
 
 export class App extends Component {
