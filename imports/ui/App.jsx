@@ -4,6 +4,7 @@ import {withNamespaces} from "react-i18next";
 import i18n from "../utils/i18n";
 import {connect} from "react-redux";
 import {useTranslation} from "react-i18next/hooks";
+import {compose} from "redux";
 
 export class App extends Component {
     constructor(props) {
@@ -25,8 +26,9 @@ export class App extends Component {
     }
 }
 
-
-export default connect(
-    withNamespaces,
-    withTracker()
+export default compose(
+    withNamespaces(),
+    withTracker(() => {
+        return {}
+    })
 )(App);
