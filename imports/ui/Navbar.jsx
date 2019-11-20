@@ -12,7 +12,7 @@ export default class Navbar extends Component{
             <div>
                 <button onClick={() => this.changeLanguage('ee')}>EE</button>
                 <button onClick={() => this.changeLanguage('en')}>EN</button>
-                <button onClick={() => this.changeLanguage('eu')}>RU</button>
+                <button onClick={() => this.changeLanguage('ru')}>RU</button>
             </div>
         )
     }

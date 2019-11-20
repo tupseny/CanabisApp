@@ -3,6 +3,7 @@ import {withTracker} from 'meteor/react-meteor-data';
 import {withNamespaces} from "react-i18next";
 import i18n from "../utils/i18n";
 import {compose} from "redux";
+import Navbar from "./Navbar";
 
 export class App extends Component {
     constructor(props) {
@@ -10,14 +11,9 @@ export class App extends Component {
     }
 
     render() {
-        function changeLanguage(lng) {
-            i18n.changeLanguage(lng);
-        }
-
         return (
             <div>
-                <button onClick={() => changeLanguage('ru')}>ru</button>
-                <button onClick={() => changeLanguage('en')}>en</button>
+                <Navbar />
                 <h1>{this.props.t('main-title')}</h1>
             </div>
         );
