@@ -1,4 +1,14 @@
 body {
-  padding: 10px;
+  /*padding: 10px;*/
   font-family: sans-serif;
+}
+
+.footer {
+  background-color: rgba(0, 255, 127, 0.51);
+  position: absolute;
+  bottom: 0;
+}
+
+.navbar {
+  padding-top: 10px;
 }

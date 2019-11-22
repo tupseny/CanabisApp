@@ -16,23 +16,21 @@ export class ItemDetail extends React.Component {
                 {p ?
                     <Row>
                         {/* Left side */}
-                        <Col lg md sm={8}>
+                        <Col sm={5}>
                             <div className={''}>
                                 <h2>{p.title}</h2>
                                 <h5>{p.category}</h5>
                             </div>
-                            <span>{p.description}</span>
+                            <span>{p.price}</span>
+                            <p>{p.description}</p>
                         </Col>
 
                         {/* Right side */}
-                        <Col lg md sm={4}>
+                        <Col sm={7}>
                             <Row>
                                 <Col>
-                                    <Image src={p.image} alt={p.alt} thumbnail/>
+                                    <Image className={''} src={p.image} alt={p.alt} thumbnail/>
                                 </Col>
-                            </Row>
-                            <Row>
-                                <span>{p.price}</span>
                             </Row>
                         </Col>
                     </Row> : ''

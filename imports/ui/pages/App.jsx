@@ -5,17 +5,28 @@ import {compose} from "redux";
 import NavigationBar from "../components/Navbar";
 import {ItemDetail} from "./Item-detail";
 import {Products} from "../../api/collections/collections";
+import {Header} from "../components/Header";
+import {Footer} from "../components/Footer";
 
 export class App extends Component {
     constructor(props) {
         super(props);
     }
 
-    render() {
+    renderBody() {
         return (
             <div>
-                <NavigationBar />
-                <ItemDetail product={this.props.products} />
+                <ItemDetail product={this.props.products}/>
+            </div>
+        )
+    }
+
+    render() {
+        return (
+            <div className={'h-100'}>
+                <Header/>
+                {this.renderBody()}
+                <Footer />
             </div>
         );
     }
