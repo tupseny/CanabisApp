@@ -26,7 +26,7 @@ export class NavigationBar extends Component{
 
     renderPanel(){
         return (
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" expand="lg" className={'mb-5'}>
                 <Navbar.Brand href="#home">{this.props.t('brand')}</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">

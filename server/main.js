@@ -1,4 +1,5 @@
-import { Meteor } from 'meteor/meteor';
-import "/imports/api/models/item-type.model"
+import '/imports/api/collections/collections'
+import '/imports/api/collections/methods'
+import '/imports/api/collections/publications'
 
 

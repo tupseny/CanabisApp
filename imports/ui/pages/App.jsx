@@ -4,6 +4,7 @@ import {withNamespaces} from "react-i18next";
 import {compose} from "redux";
 import NavigationBar from "../components/Navbar";
 import {ItemDetail} from "./Item-detail";
+import {Products} from "../../api/collections/collections";
 
 export class App extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ export class App extends Component {
         return (
             <div>
                 <NavigationBar />
-                <ItemDetail />
+                <ItemDetail product={this.props.products} />
             </div>
         );
     }
@@ -23,6 +24,10 @@ export class App extends Component {
 export default compose(
     withNamespaces(),
     withTracker(() => {
-        return {}
+        Meteor.subscribe('products');
+
+        return {
+            products: Products.find({}).fetch()
+        }
     })
 )(App);
