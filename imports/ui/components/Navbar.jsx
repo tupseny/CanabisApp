@@ -41,8 +41,8 @@ export class NavigationBar extends Component{
                         </NavDropdown>
                     </Nav>
                     <Form inline>
-                        <FormControl type="text" placeholder={"Search"} className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
+                        <FormControl type="text" placeholder={this.props.t('search')} className="mr-sm-2" />
+                        <Button variant="outline-success">{this.props.t('search')}</Button>
                     </Form>
                 </Navbar.Collapse>
             </Navbar>

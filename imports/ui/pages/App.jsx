@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {withTracker} from 'meteor/react-meteor-data';
 import {withNamespaces} from "react-i18next";
 import {compose} from "redux";
-import NavigationBar from "./Navbar";
+import NavigationBar from "../components/Navbar";
+import {ItemDetail} from "./Item-detail";
 
 export class App extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ export class App extends Component {
         return (
             <div>
                 <NavigationBar />
-                <h1>{this.props.t('main-title')}</h1>
+                <ItemDetail />
             </div>
         );
     }
