@@ -1,11 +1,15 @@
 import * as React from "react";
 
-export default class ProductDescription extends React.Component {
+export class ItemElement extends React.Component {
     render() {
         return (
             <div>
-                asd
+
             </div>
         );
     }
 }
+
+ItemElement.propTypes = {
+
+};
