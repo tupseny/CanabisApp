@@ -1,7 +1,9 @@
 {
-  "main-title": "Hello World!",
   "brand": "CANNABIS",
   "categories": "Categories",
   "to_home": "Home",
-  "search": "Search"
+  "search": "Search",
+  "lang_short_en": "EN",
+  "lang_short_ee": "EE",
+  "lang_short_ru": "RUS"
 }

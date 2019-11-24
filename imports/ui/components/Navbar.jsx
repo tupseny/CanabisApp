@@ -1,47 +1,33 @@
 import React, {Component} from 'react';
-import  i18n from '/imports/utils/i18n'
+import i18n from '/imports/utils/i18n'
 
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Form from "react-bootstrap/Form";
-import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
 import {withNamespaces} from "react-i18next";
+import {ButtonGroup, Navbar, Nav, NavDropdown, Form, FormControl, Button} from "react-bootstrap";
+import LanguagePanel from "./Language-panel";
 
-export class NavigationBar extends Component{
-    changeLanguage(lng){
-        i18n.changeLanguage(lng).then(r => console.log('language changed'));
-    }
-
-    renderLanguagePanel(){
-        return (
-            <div>
-                <button onClick={() => this.changeLanguage('ee')}>EE</button>
-                <button onClick={() => this.changeLanguage('en')}>EN</button>
-                <button onClick={() => this.changeLanguage('ru')}>RU</button>
-            </div>
-        )
-    }
-
-    renderPanel(){
+export class NavigationBar extends Component {
+    renderPanel() {
         return (
             <Navbar bg="light" expand="lg" className={'mb-5'}>
                 <Navbar.Brand href="#home">{this.props.t('brand')}</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
+                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Collapse id="basic-navbar-nav" className={'justify-content-between'}>
+                    <Nav className="">
                         <Nav.Link href="#home">{this.props.t('to_home')}</Nav.Link>
+
                         <NavDropdown title={this.props.t('categories')} id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            <NavDropdown.Divider />
+                            <NavDropdown.Divider/>
                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder={this.props.t('search')} className="mr-sm-2" />
+
+                    <LanguagePanel />
+
+                    <Form inline className={'ml-auto'}>
+                        <FormControl type="text" placeholder={this.props.t('search')} className="mr-sm-2"/>
                         <Button variant="outline-success">{this.props.t('search')}</Button>
                     </Form>
                 </Navbar.Collapse>

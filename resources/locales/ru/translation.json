@@ -1,3 +1,9 @@
 {
-  "main-title": "Привет мир!"
+  "brand": "CANNABIS",
+  "categories": "Категории",
+  "to_home": "Домой",
+  "search": "Искать",
+  "lang_short_en": "АНГ",
+  "lang_short_ee": "ЭСТ",
+  "lang_short_ru": "РУС"
 }

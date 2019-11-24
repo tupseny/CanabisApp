@@ -12,3 +12,7 @@ body {
 .navbar {
   padding-top: 10px;
 }
+
+.lang-panel > button {
+  /*width: 20%;*/
+}
