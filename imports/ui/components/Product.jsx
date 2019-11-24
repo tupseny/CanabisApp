@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Image} from "react-bootstrap";
-import {ReactPropTypes as PropTypes} from "react";
+import PropTypes from 'prop-types';
 
 export class ProductDescription extends React.Component {
     render() {
@@ -13,7 +13,7 @@ export class ProductDescription extends React.Component {
 }
 
 ProductDescription.propTypes = {
-    value: PropTypes.string
+    value: PropTypes.string,
 };
 
 ProductDescription.defaultProps = {
@@ -37,7 +37,7 @@ ProductImage.defaultProps = {
     alt: ''
 };
 
-export default class ProductPrice extends React.Component {
+export class ProductPrice extends React.Component {
     render() {
         return (
             <span>{this.props.value}</span>
@@ -56,7 +56,7 @@ ProductPrice.defaultProps = {
     value: 0
 };
 
-export default class ProductTitle extends React.Component {
+export class ProductTitle extends React.Component {
     render() {
 
         return (

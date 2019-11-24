@@ -1,9 +1,7 @@
 import * as React from "react";
-import {Col, Container, Image, Row} from "react-bootstrap";
-import ProductPrice from "../components/Product/Product-price";
-import ProductDescription from "../components/Product/Product-descr";
-import ProductTitle from "../components/Product/Product-title";
-import {ProductImage} from "../components/Product/Product-image";
+import {Col, Container, Row} from "react-bootstrap";
+import {ProductImage, ProductDescription, ProductTitle, ProductPrice} from "../components/Product";
+import PropTypes from 'prop-types';
 
 
 export class ItemDetail extends React.Component {
@@ -16,16 +14,16 @@ export class ItemDetail extends React.Component {
             <Row>
                 {/* Left side */}
                 <Col sm={5}>
-                    <ProductTitle title={p.title} category={p.category}/>
-                    <ProductPrice price={p.price}/>
+                    <ProductTitle value={p.title} subTitle={p.category}/>
+                    <ProductPrice value={p.price}/>
                     <ProductDescription value={p.description}/>
                 </Col>
 
                 {/* Right side */}
                 <Col sm={7}>
                     <Row>
-                        <Col>
-                            <ProductImage src={p.image} alt={p.alt}/>
+                        <Col xs={4}>
+                            <ProductImage value={p.image} alt={p.alt}/>
                         </Col>
                     </Row>
                 </Col>
@@ -34,13 +32,15 @@ export class ItemDetail extends React.Component {
     }
 
     render() {
-        console.log(this.props.product);
-        const product = this.props.product[0];
 
         return (
             <Container className={''}>
-                {product ? this.renderProduct(product) : ''}
+                {this.props.product ? this.renderProduct(this.props.product) : ''}
             </Container>
         );
     }
 }
+
+ItemDetail.propTypes = {
+    product: PropTypes.object,
+};

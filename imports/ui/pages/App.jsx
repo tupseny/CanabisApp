@@ -4,9 +4,10 @@ import {withNamespaces} from "react-i18next";
 import {compose} from "redux";
 import NavigationBar from "../components/Navbar";
 import {ItemDetail} from "./Item-detail";
-import {Products} from "../../api/collections/collections";
+import {Categories, Products} from "../../api/collections/collections";
 import {Header} from "../components/Header";
 import {Footer} from "../components/Footer";
+import {CategoriesPage} from "./Categories-page";
 
 export class App extends Component {
     constructor(props) {
@@ -15,9 +16,7 @@ export class App extends Component {
 
     renderBody() {
         return (
-            <div>
-                <ItemDetail product={this.props.products}/>
-            </div>
+            <CategoriesPage list={this.props.categories}/>
         )
     }
 
@@ -26,7 +25,7 @@ export class App extends Component {
             <div className={'h-100'}>
                 <Header/>
                 {this.renderBody()}
-                <Footer />
+                {/*<Footer />*/}
             </div>
         );
     }
@@ -36,9 +35,11 @@ export default compose(
     withNamespaces(),
     withTracker(() => {
         Meteor.subscribe('products');
+        Meteor.subscribe('categories');
 
         return {
-            products: Products.find({}).fetch()
+            products: Products.find({}).fetch(),
+            categories: Categories.find({}).fetch()
         }
     })
 )(App);
