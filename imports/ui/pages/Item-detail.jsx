@@ -1,6 +1,9 @@
 import * as React from "react";
 import {Col, Container, Image, Row} from "react-bootstrap";
-import {Product} from "../components/Product/Product";
+import ProductPrice from "../components/Product/Product-price";
+import ProductDescription from "../components/Product/Product-descr";
+import ProductTitle from "../components/Product/Product-title";
+import {ProductImage} from "../components/Product/Product-image";
 
 
 export class ItemDetail extends React.Component {
@@ -8,31 +11,26 @@ export class ItemDetail extends React.Component {
         super(props);
     }
 
-    renderProduct(p){
-        return <Container className={''}>
-            {p ?
-                <Row>
-                    {/* Left side */}
-                    <Col sm={5}>
-                        <div className={''}>
-                            <h2>{p.title}</h2>
-                            <h5>{p.category}</h5>
-                        </div>
-                        <span>{p.price}</span>
-                        <p>{p.description}</p>
-                    </Col>
+    renderProduct(p) {
+        return (
+            <Row>
+                {/* Left side */}
+                <Col sm={5}>
+                    <ProductTitle title={p.title} category={p.category}/>
+                    <ProductPrice price={p.price}/>
+                    <ProductDescription value={p.description}/>
+                </Col>
 
-                    {/* Right side */}
-                    <Col sm={7}>
-                        <Row>
-                            <Col>
-                                <Image className={''} src={p.image} alt={p.alt} thumbnail/>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row> : ''
-            }
-        </Container>;
+                {/* Right side */}
+                <Col sm={7}>
+                    <Row>
+                        <Col>
+                            <ProductImage src={p.image} alt={p.alt}/>
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
+        );
     }
 
     render() {
@@ -40,9 +38,9 @@ export class ItemDetail extends React.Component {
         const product = this.props.product[0];
 
         return (
-            <Product product={product}>
-                <Product.Name/>
-            </Product>
-        )
+            <Container className={''}>
+                {product ? this.renderProduct(product) : ''}
+            </Container>
+        );
     }
 }
