@@ -1,4 +1,4 @@
-import {Categories, Products} from "./collections";
+import {Categories, Products} from "../lists";
 
 if (Meteor.isServer) {
     Meteor.publish('products',  () => {

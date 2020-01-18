@@ -1,5 +1,5 @@
 import { check } from 'meteor/check';
-import {Products} from "./collections";
+import {Products} from "./lists";
 
 Meteor.methods({
     'products.insert'(title, description) {

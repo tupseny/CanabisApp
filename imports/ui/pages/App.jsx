@@ -4,7 +4,7 @@ import {withNamespaces} from "react-i18next";
 import {compose} from "redux";
 import NavigationBar from "../components/Navbar";
 import {ItemDetail} from "./Item-detail";
-import {Categories, Products} from "../../api/collections/collections";
+import {Categories, Products} from "../../api/lists/lists";
 import {Header} from "../components/Header";
 import {Footer} from "../components/Footer";
 import {CategoriesPage} from "./Categories-page";
