@@ -1,2 +1,6 @@
 node_modules/
 /alex.py
+!/.meteor/
+!/package-lock.json
+!/.babelrc
+!/.flowconfig
