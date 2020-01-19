@@ -1,14 +1,10 @@
-import { check } from 'meteor/check';
+import {check} from 'meteor/check';
 import {Products} from "./lists";
+import {findByTag} from "./methods/product";
 
 Meteor.methods({
-    'products.insert'(title, description) {
-        check(title, String);
-        check(description, String);
-
-        Products.insert({
-            title,
-            description
-        })
+    [findByTag.name]: function (args) {
+        findByTag.validate.call(this, args);
+        return findByTag.run.call(this, args);
     }
 });

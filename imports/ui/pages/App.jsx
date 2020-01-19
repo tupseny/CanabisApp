@@ -8,15 +8,30 @@ import {Categories, Products} from "../../api/lists/lists";
 import {Header} from "../components/Header";
 import {Footer} from "../components/Footer";
 import {CategoriesPage} from "./Categories-page";
+import {findByTag} from "../../api/lists/methods/product";
+import {forEach} from "react-bootstrap/cjs/ElementChildren";
 
 export class App extends Component {
     constructor(props) {
         super(props);
+        this.state = {products: []};
+
+        findByTag.call({tag: 'tent'}, (err, products) => {
+            if (err) {
+                alert(err)
+            } else {
+                this.setState({products})
+            }
+        });
     }
 
     renderBody() {
         return (
-            <CategoriesPage list={this.props.categories}/>
+            <div>
+                {this.state.products.map(p => {return p.name})}
+            </div>
+
+            // <CategoriesPage list={this.props.categories}/>
         )
     }
 
